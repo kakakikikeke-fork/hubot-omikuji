@@ -15,7 +15,7 @@
 #
 module.exports = (robot) ->
   robot.respond /omikuji(\s+(\S+))?(\s+(.+))?$/i, (res) ->
-    username = res.message.user.name
+    username = "@#{res.message.user.name}"
     data = JSON.parse(process.env.HUBOT_OMIKUJI_INITIAL_DATA ? '{}')
     data.default = data.default ? ["凶", "吉", "大吉"]
     type = res.match[2] ? 'default'
