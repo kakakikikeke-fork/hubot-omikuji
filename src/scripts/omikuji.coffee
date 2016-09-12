@@ -38,3 +38,15 @@ module.exports = (robot) ->
 
   robot.respond /show data?$/i, (res) ->
     res.send process.env.HUBOT_OMIKUJI_INITIAL_DATA ? '{}'
+
+  robot.router.get '/', (req, res) ->
+    html = """
+      <html>
+      <head><title>hubot-omikuji</title></head>
+      <body>
+        <h1>Welcome to hubot-omikuji plugin</h1>
+      </body>
+      </html>
+    """
+    res.type 'html'
+    res.send html
